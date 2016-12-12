@@ -1,0 +1,44 @@
+<html lang = "en">
+<head>
+
+<title>Itunes Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src ="js/jquery.js"></script>
+<script src ="js/app.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="css/custom_styles.css" type = "text/css" media="screen">
+</head>
+
+<body>
+
+<div class="container">
+<div class="jumbotron">
+<div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for music...">
+      <span class="input-group-btn">
+        <button class="btn btn-default btn-lg" type="button">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search!
+        </button>
+      </span>
+</div> <!--/input group-->
+</div> <!--/jumbotron-->
+</div> <!--/container-->
+<a href="http://jquery.com/">TEST LINK</a>
+    
+<script>
+$( document ).ready(function() {
+ 
+    $( "a" ).click(function( event ) {
+ 
+        alert( "As you can see, the link no longer took you to jquery.com" );
+ 
+        event.preventDefault();
+ 
+    });
+ 
+});
+</script>
+</body>
+
+</html>
