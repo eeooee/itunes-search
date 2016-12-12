@@ -19,12 +19,26 @@ var getItunesUrl = function(input){
  return itunesUrl.concat(searchString);
 }
 
+var formatResults = function(searchResult){
+var content = searchResult.trackName + "-";
+content += searchResult.artistName;
+console.log(content);
+return content;
+}
+
 var searchItunes = function(input){
     $.ajax({
         url: input,
-        dataType: "JSONP"
+        dataType: "JSONP",
+        success:function(data){
+            for(let i=0; i<5; i++){
+                formatResults(data.results[i]);
+            }
+        }
+        
     })
     .done(function(data){console.log(data);})
     .fail(function(data){console.log(data);})
 
 }
+
