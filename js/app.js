@@ -28,16 +28,30 @@ content += '<div class = "card-block">';
 content += '<img src="'+searchResult.artworkUrl100+'" class="img-fluid" id = "albumArt" alt="Responsive image">'
 content += '<p>' + searchResult.trackName + " - ";
 content += searchResult.artistName + '</p>';
-content +='<audio src="'+ searchResult.previewUrl+ '"controls>';
+content +='<audio src="'+ searchResult.previewUrl+ '" id="'+searchResult.trackId+'" >';
 content += 'Embedded Preview';
 content += '</audio>'
+content += '<button id="'+searchResult.trackId+'Button">play</play>'
 content += '</div>';
 content += '</div>';
 content += '</div>';
 console.log(content);
 $('#row'+rowID).append(content);
+playAndPause(searchResult.trackId.toString(), (searchResult.trackId+'Button'));
 }
 
+
+var playAndPause = function(playID, buttonID){
+let player = document.getElementById(playID);
+let count =0;
+$('#'+buttonID).on('click',function(){
+    count++;
+    if(count%2==0){
+    player.play();}
+    else{
+        player.pause();}
+});
+}
 
 
 var searchItunes = function(input){
