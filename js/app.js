@@ -3,6 +3,7 @@ $(document).ready(function(){
      var value=  $("#searchBar").val(); 
      value = getItunesUrl(value);
      $("#test").text(value);
+     $('#results').empty();
      searchItunes(value);
     });
 
