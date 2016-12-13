@@ -27,8 +27,8 @@ content += '<div class = "card-block">';
 content += '<img src="'+searchResult.artworkUrl100+'" class="img-fluid" id = "albumArt" alt="Responsive image">'
 content += '<p>' + searchResult.trackName + " - ";
 content += searchResult.artistName + '</p>';
-content +='<audio class="sample" controls preload="none">';
-content += '<source src="'+ searchResult.previewUrl + '"type="audio/m4a">';
+content +='<audio src="'+ searchResult.previewUrl+ '"controls>';
+content += 'Embedded Preview';
 content += '</audio>'
 content += '</div>';
 content += '</div>';
