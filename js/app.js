@@ -25,13 +25,15 @@ var formatResults = function(searchResult, rowID){
 let content = '<div class="col-sm-3" id="searchResults">';
 content += '<div class="card">';
 content += '<div class = "card-block">';
-content += '<img src="'+searchResult.artworkUrl100+'" class="img-fluid" id = "albumArt" alt="Responsive image">'
-content += '<p>' + searchResult.trackName + " - ";
-content += searchResult.artistName + '</p>';
 content +='<audio src="'+ searchResult.previewUrl+ '" id="'+searchResult.trackId+'" >';
 content += 'Embedded Preview';
 content += '</audio>'
-content += '<button id="'+searchResult.trackId+'Button">play</play>'
+content += '<button type="button" class="btn btn-outline-secondary btn-lg" id="'+searchResult.trackId+'Button">'
+content += '<span class="fa fa-play" aria-hidden="true"></span></button></p>';
+content += '</div><div class="card-footer">'
+content += '<p class="card-title" id="songTitle">' + searchResult.trackName + '</p>';
+content += '<p class="card-title" id="artistName">'+ searchResult.artistName + '</p>';
+content += '<p class="card-title" id="albumName">' + searchResult.collectionName + '</p>';
 content += '</div>';
 content += '</div>';
 content += '</div>';
