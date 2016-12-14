@@ -16,10 +16,8 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Find your favorite music! </h1>
+                <p id="test">search string will appear here</p>
             </div>
-            <p class="lead">Here's some information about your new favorite application!</p>
-            <p id="test">search string will appear here</p>
         </div>
 
         <div class="container-fluid">    
@@ -29,11 +27,22 @@
        </div>
         <footer class="footer">
             <div class="container">
+               
                 <div class="input-group input-group-lg" >
-                    <input type="text" class="form-control" id="searchBar" placeholder="Find your favorite music..." aria-describedby="basic-addon2">
+                       <span class="input-group-btn">
+        <button class="btn btn-outline-secondary btn-sm" type="button"id="backButton">
+            <span class="fa fa-arrow-circle-left fa-lg" aria-hidden="true"></span>  
+            </button>
+      </span>
+                    <input type="text"  id="searchBar" class="form-control" placeholder="Explore new music on iTunes..." aria-describedby="basic-addon2">
                     <span class="input-group-btn">
         <button class="btn btn-default btn-large" type="button"id="searchButton">
-            <span class="fa fa-search fa-lg" aria-hidden="true"></span>  Search iTunes...
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span> search!
+            </button>
+      </span>
+         <span class="input-group-btn">
+        <button class="btn btn-outline-secondary btn-sm" type="button"id="forwardButton">
+            <span class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></span> 
             </button>
       </span>
                 </div>
