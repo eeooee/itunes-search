@@ -40,7 +40,6 @@ var formatResults = function (searchResult, rowID) {
     content += '</div>';
     content += '</div>';
     content += '</div>';
-    console.log(content);
     $('#row' + rowID).append(content);
     playAndPause(searchResult.trackId.toString(), (searchResult.trackId + 'Button'));
 }
@@ -85,6 +84,7 @@ var searchItunes = function (input) {
 }
 
 var populatePages = function (element, page) {
+    page = (page > 0) ? page : 1;
     $('#results').empty();
     var resultsPerPage = 20
     pageNavigation(page, (Math.ceil((element.length) / (resultsPerPage))), element);
@@ -114,9 +114,13 @@ var pageNavigation = function (page, lastPage, element) {
     }
 
     $("#backButton").on('click', function () {
+        
+        console.log("back a page!" + page);
         populatePages(element, page - 1);
     });
     $("#forwardButton").on('click', function () {
+        
+        console.log("forward a page!" + page);
         populatePages(element, page + 1);
     });
 }
