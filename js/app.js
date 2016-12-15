@@ -66,7 +66,7 @@ var searchItunes = function (input) {
             dataType: "JSONP",
             success: function (data) {
                 //when this function has succeeded, hide the loading animation and clear the results
-               $('#loading').hide(600);
+                $('#loading').hide(600);
                 $('#results').empty();
                 if (data.resultCount == 0) {
                     $('#results').append(' <div class="jumbotron text-xs-center vertical-center" id="jumbo" role="alert"><h4>Sorry, no results were found.  </h4><hr>Try another search. </div>');
@@ -118,12 +118,12 @@ var pageNavigation = function (page, lastPage, element) {
     }
 
     $("#backButton").on('click', function () {
-        
+
         console.log("back a page!" + page);
         populatePages(element, page - 1);
     });
     $("#forwardButton").on('click', function () {
-        
+
         console.log("forward a page!" + page);
         populatePages(element, page + 1);
     });
