@@ -11,45 +11,41 @@
 </head>
 
 <body>
-
-    <body>
-        <!-- Begin page content -->
-        <div class="container">
-            <div class="page-header">
-                <p id="test">search string will appear here</p>
+    <div class="container-fluid">
+        <div id="results">
+            
+        <div class="modal" id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <span class="sr-only">Loading...</span></div>
+            <div class="jumbotron text-xs-center vertical-center" id="jumbo">
+                Here you can search for your favorite music with iTunes.
+                <hr> Type in an artist to get started. Use the arrows to navigate through your results. You can listen to a 30
+                second preview of most songs by clicking the play button!
             </div>
         </div>
-
-        <div class="container-fluid">    
-         <div id="results">
-            
-          </div>
-       </div>
-        <footer class="footer">
-            <div class="container">
-               
-                <div class="input-group input-group-lg" >
-                       <span class="input-group-btn">
+    </div>
+    <nav class="navbar navbar-fixed-bottom ">
+        <div class="container">
+            <div class="input-group input-group-lg">
+                <span class="input-group-btn">
         <button class="btn btn-outline-secondary btn-sm" type="button"id="backButton">
-            <span class="fa fa-arrow-circle-left fa-lg" aria-hidden="true"></span>  
-            </button>
-      </span>
-                    <input type="text"  id="searchBar" class="form-control" placeholder="Explore new music on iTunes..." aria-describedby="basic-addon2">
-                    <span class="input-group-btn">
+            <span class="fa fa-arrow-circle-left fa-lg" aria-hidden="true"></span>
+                </button>
+                </span>
+                <input type="text" id="searchBar" class="form-control" placeholder="Explore new music on iTunes..." aria-describedby="basic-addon2">
+                <span class="input-group-btn">
         <button class="btn btn-default btn-large" type="button"id="searchButton">
-            <span class="fa fa-search fa-lg" aria-hidden="true"></span> search!
-            </button>
-      </span>
-         <span class="input-group-btn">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span> <small>search!</small>
+                </button>
+                </span>
+                <span class="input-group-btn">
         <button class="btn btn-outline-secondary btn-sm" type="button"id="forwardButton">
-            <span class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></span> 
-            </button>
-      </span>
-                </div>
+            <span class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></span>
+                </button>
+                </span>
             </div>
+        </div>
         </footer>
         <script src="js/jquery.js"></script>
         <script src="js/app.js"></script>
-    </body>
+</body>
 
 </html>

@@ -3,10 +3,10 @@ $(document).ready(function () {
     $("#forwardButton").hide();
     $("#backButton").hide();
     $("#searchButton").on("click", function () {
+        
+        $('#loading').css('visibility', 'visible');
         var value = $("#searchBar").val();
         value = getItunesUrl(value);
-        $("#test").text(value);
-        $('#results').empty();
         searchItunes(value);
     });
 
@@ -20,12 +20,13 @@ $(document).ready(function () {
 var getItunesUrl = function (input) {
     let searchString = input.replace(/ /g, "\+");
     let itunesUrl = "http://itunes.apple.com/search?term=";
-    return itunesUrl.concat(searchString);
+    //200 is the maximum search result available
+    return (itunesUrl.concat(searchString)).concat("&limit=200");
 }
 
 var formatResults = function (searchResult, rowID) {
 
-    let content = '<div class="col-sm-3" id="searchResults">';
+    let content = '<div class="col-md-3" id="searchResults">';
     content += '<div class="card">';
     content += '<div class = "card-block" style="background-image: url(' + searchResult.artworkUrl100.replace("100x100", "400x400") + ');">';
     content += '<audio src="' + searchResult.previewUrl + '" id="' + searchResult.trackId + '" >';
@@ -64,6 +65,10 @@ var searchItunes = function (input) {
             url: input,
             dataType: "JSONP",
             success: function (data) {
+                //when this function has succeeded, hide the loading animation and clear the results
+                
+               $('#loading').css('visibility', 'hidden');
+                $('#results').empty();
                 if (data.resultCount == 0) {
                     $('#results').append('<h1>Sorry, no music was found!</h2>');
                 } else {
@@ -104,13 +109,13 @@ var populatePages = function (element, page) {
 
 var pageNavigation = function (page, lastPage, element) {
 
-    $("#forwardButton").show();
-    $("#backButton").show();
+    $("#forwardButton").show().prop("disabled", false);
+    $("#backButton").show().prop("disabled", false);
     if (page == 1) {
-        $("#backButton").hide();
+        $("#backButton").prop("disabled", true);
     }
     if (page == lastPage) {
-        $("#forwardButton").hide();
+        $("#forwardButton").prop("disabled", true);
     }
 
     $("#backButton").on('click', function () {
