@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
+    $("loading").hide();
     $("#forwardButton").hide();
     $("#backButton").hide();
     $("#searchButton").on("click", function () {
-        
-        $('#loading').css('visibility', 'visible');
+        $('#loading').show(200);
         var value = $("#searchBar").val();
         value = getItunesUrl(value);
         searchItunes(value);
@@ -48,7 +48,7 @@ var formatResults = function (searchResult, rowID) {
 
 var playAndPause = function (playID, buttonID) {
     let player = document.getElementById(playID);
-    let count = 0;
+    let count = 1;
     $('#' + buttonID).on('click', function () {
         count++;
         if (count % 2 == 0) {
@@ -66,11 +66,10 @@ var searchItunes = function (input) {
             dataType: "JSONP",
             success: function (data) {
                 //when this function has succeeded, hide the loading animation and clear the results
-                
-               $('#loading').css('visibility', 'hidden');
+               $('#loading').hide(600);
                 $('#results').empty();
                 if (data.resultCount == 0) {
-                    $('#results').append('<h1>Sorry, no music was found!</h2>');
+                    $('#results').append(' <div class="jumbotron text-xs-center vertical-center" id="jumbo" role="alert"><h4>Sorry, no results were found.  </h4><hr>Try another search. </div>');
                 } else {
                     let results = data.results;
                     populatePages(results, 1);
